@@ -1,0 +1,75 @@
+homeassistant:
+  name: !secret name
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  unit_system: !secret unit_system
+  time_zone: !secret time_zone
+
+frontend:
+
+config:
+
+http:
+  base_url: !secret base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+updater:
+
+discovery:
+
+conversation:
+
+history:
+
+logbook:
+
+sun:
+
+sensor:
+  - platform: yr
+
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+cloud:
+
+notify:
+  - name: aaron
+    platform: !secret notify_platform
+    api_key: !secret notify_platform_api_key
+    user_key: !secret notify_platform_user_key
+
+group: !include groups.yaml
+
+automation: !include automations.yaml
+
+script: !include scripts.yaml
+
+switch:
+  - platform: !secret switch_0_name
+    host: !secret switch_0_host
+    friendly_name: !secret switch_0_friendly_name
+    mac: !secret switch_0_mac
+
+device_tracker:
+  - platform: !secret device_tracker_platform
+    host: !secret device_router_host
+    username: !secret device_router_username
+    password: !secret device_router_password
+    new_device_defaults:
+      track_new_devices: false
+
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: !secret configurator_url
+
+logger:
+  default: info
+  logs:
+    pydeconz: debug
+    homeassistant.components.deconz: debug
