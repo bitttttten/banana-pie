@@ -1,11 +1,12 @@
-*
-!*.yaml
-!.gitignore
-!*.md
-!docs/*.png
 .storage
 .cloud
 .google.token
+deps
+tts
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
+.uuid
+.HA_VERSION
+*.log
+*.db
