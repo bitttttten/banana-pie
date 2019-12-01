@@ -1,0 +1,31 @@
+{
+  "name": "banana-pie",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">     <img alt=\"pepe\" src=\"./docs/feelschristmasornot.png\" width=\"200\" /> </p> <h1 align=\"center\">     hass.io config </h1>",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npm run homeassistant:check",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pre:homeassistant:*": "cd /config",
+    "homeassistant:check": "hassio homeassistant check",
+    "homeassistant:info": "hassio homeassistant info",
+    "homeassistant:logs": "hassio homeassistant logs",
+    "homeassistant:options": "hassio homeassistant options",
+    "homeassistant:rebuild": "hassio homeassistant rebuild",
+    "homeassistant:restart": "hassio homeassistant restart",
+    "homeassistant:start": "hassio homeassistant start",
+    "homeassistant:stats": "hassio homeassistant stats",
+    "homeassistant:stop": "hassio homeassistant stop",
+    "homeassistant:update": "hassio homeassistant update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitttttten/banana-pie.git"
+  },
+  "author": "bitttttten <bitttttten@googlemail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bitttttten/banana-pie/issues"
+  },
+  "homepage": "https://github.com/bitttttten/banana-pie#README"
+}
