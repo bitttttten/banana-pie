@@ -1,1 +1,1 @@
-cp -r .githooks .git/hooks
+cp -r .githooks/* .git/hooks
