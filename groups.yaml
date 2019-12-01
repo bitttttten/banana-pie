@@ -1,0 +1,26 @@
+house_lights:
+    name: House Lights
+    view: true
+    entities:
+      - light.bedroom
+      - light.living_room
+
+aaron:
+    name: Aaron
+    view: true
+    entities:
+      - device_tracker.aaron
+
+sophie:
+    name: Sophie
+    view: true
+    entities:
+        - device_tracker.sophie
+
+us:
+    name: Us
+    view: true
+    icon: mdi:account-multiple    
+    entities:
+      - device_tracker.aaron
+      - device_tracker.sophie
