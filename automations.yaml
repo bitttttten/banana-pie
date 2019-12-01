@@ -1,22 +1,22 @@
-- id: '1557608386419'
+- id: "1557608386419"
   alias: Turn on the light when the sun sets (/config/automations.yaml)
   trigger:
-  - event: sunset
-    offset: -01:00
-    platform: sun
+    - event: sunset
+      offset: -01:00
+      platform: sun
   condition:
-  - condition: state
-    entity_id: device_tracker.aaron
-    state: home
-  - condition: state
-    entity_id: device_tracker.sophie
-    state: home
+    - condition: state
+      entity_id: device_tracker.aaron
+      state: home
+    - condition: state
+      entity_id: device_tracker.sophie
+      state: home
   action:
-  - service: notify.aaron
-    data:
-      message: "It was looking a little dark!"
-      title: "Something to brighten up the room :)"
-  - service: hue.hue_activate_scene
-    data:
-      group_name: "living room"
-      scene_name: "the best lights"
+    - service: notify.aaron
+      data:
+        message: "It was looking a little dark!"
+        title: "Something to brighten up the room :)"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "living room"
+        scene_name: "the best lights"

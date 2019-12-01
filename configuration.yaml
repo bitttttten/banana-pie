@@ -61,7 +61,7 @@ device_tracker:
     password: !secret device_router_password
     new_device_defaults:
       track_new_devices: false
-      
+
 panel_iframe:
   configurator:
     title: Configurator

@@ -10,3 +10,5 @@ known_devices.yaml
 .HA_VERSION
 *.log
 *.db
+*.db-wal
+node_modules
