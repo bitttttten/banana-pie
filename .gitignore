@@ -2,7 +2,7 @@
 !*.yaml
 !.gitignore
 !*.md
-!docs/
+!docs/*.png
 .storage
 .cloud
 .google.token
