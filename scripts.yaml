@@ -1,0 +1,11 @@
+leds_on:
+  alias: LEDs on
+  sequence:
+   - service: switch.turn_on
+     entity_id: switch.leds
+leds_off:
+  alias: LEDs off
+  sequence:
+   - service: switch.turn_off
+     entity_id: switch.leds
+

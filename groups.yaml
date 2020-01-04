@@ -9,18 +9,18 @@ aaron:
   name: Aaron
   view: true
   entities:
-    - device_tracker.aaron
+    - device_tracker.86_d5_df_84_0e_d9
 
 sophie:
   name: Sophie
   view: true
   entities:
-    - device_tracker.sophie
+    - device_tracker.70_3c_69_c7_58_ce
 
 us:
   name: Us
   view: true
   icon: mdi:account-multiple
   entities:
-    - device_tracker.aaron
-    - device_tracker.sophie
+    - device_tracker.86_d5_df_84_0e_d9
+    - device_tracker.70_3c_69_c7_58_ce

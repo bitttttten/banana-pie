@@ -5,7 +5,44 @@ homeassistant:
   elevation: !secret elevation
   unit_system: !secret unit_system
   time_zone: !secret time_zone
-
+  customize:
+    device_tracker.86_d5_df_84_0e_d9:
+      entity_picture: "https://i.imgur.com/YRUycce.jpg"
+      icon: mdi:cellphone-android
+      friendly_name: Aaron
+    device_tracker.9c_eb_e8_50_11_8e:
+      icon: mdi:desktop-tower
+      friendly_name: GLaDOS
+    device_tracker.70_3c_69_c7_58_ce:
+      icon: mdi:cellphone-iphone
+      friendly_name: Sophie
+    device_tracker.68_05_ca_a2_18_c7:
+      icon: mdi:desktop-tower
+      friendly_name: iGLaDOS
+    device_tracker.30_10_b3_20_b5_03:
+      track: false
+    device_tracker.20_df_b9_c3_49_3e:
+      track: false
+    device_tracker.00_17_88_67_15_f1:
+      track: false
+    device_tracker.ac_bc_32_a4_3b_25:
+      track: false
+    device_tracker.8c_b8_4a_81_73_b2:
+      track: false
+    device_tracker.f0_6e_0b_eb_15_45:
+      track: false
+    device_tracker.00_17_10_93_ed_16:
+      track: false
+    device_tracker.b8_27_eb_1a_ab_b9:
+      track: false
+    device_tracker.54_60_09_d9_5e_ea:
+      track: false
+    device_tracker.e4_2b_34_b5_8e_cd:
+      track: false
+    device_tracker.34_ea_34_42_c7_84:
+      track: false
+    device_tracker.f4_f5_db_08_12_32:
+      track: false
 frontend:
 
 config:
@@ -49,25 +86,36 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 
 switch:
-  - platform: !secret switch_0_name
-    host: !secret switch_0_host
-    friendly_name: !secret switch_0_friendly_name
-    mac: !secret switch_0_mac
+  - platform: broadlink
+    host: !secret switch_broadlink_host
+    friendly_name: !secret switch_broadlink_friendly_name
+    mac: !secret switch_broadlink_mac
+    type: !secret switch_broadlink_type
+    switches:
+      leds:
+        command_on: "JgBYAAABMZMTExMSFREVERMSFBIVERMSFDYVNRM3FTUVERM3FTUUNhQ2EzcUERMTExMTEhQSExIUEhMTEzcTNxM2FDYUNhU1FQAFQAABL0oUAAxTAAEyShUADQU="
+        command_off: "JgBYAAABNJQTEhURFBIVERMTExMTExUQFDcUNhU1EzcTExQ2FTUUNhMSFDYUEhMTExMTEhURFREUNhQSFTUVNRU1FDYVNRQ2FAAFOwABNkkUAAxRAAEwSRQADQU="
+        friendly_name: "LEDs"
 
 device_tracker:
   - platform: !secret device_tracker_platform
     host: !secret device_router_host
     username: !secret device_router_username
     password: !secret device_router_password
+    interval_seconds: 6
     new_device_defaults:
       track_new_devices: false
+      hide_if_away: false
 
-panel_iframe:
-  configurator:
+configurator:
     title: Configurator
     icon: mdi:wrench
     url: !secret configurator_url
 
+binary_sensor:
+  - platform: uptimerobot
+    api_key: !secret uptimerobot_api_key
+    
 logger:
   default: info
   logs:

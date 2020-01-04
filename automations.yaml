@@ -1,22 +1,90 @@
-- id: "1557608386419"
-  alias: Turn on the light when the sun sets (/config/automations.yaml)
+- id: '1557608386419'
+  alias: Lights on when the sun sets or when people get home between 4pm-11pm
   trigger:
-    - event: sunset
-      offset: -01:00
-      platform: sun
+  - event: sunset
+    offset: -01:00:00
+    platform: sun
+  - entity_id: group.us
+    platform: state
+    to: home
   condition:
-    - condition: state
-      entity_id: device_tracker.aaron
-      state: home
-    - condition: state
-      entity_id: device_tracker.sophie
-      state: home
+  - condition: state
+    entity_id: device_tracker.86_d5_df_84_0e_d9
+    state: home
+  - before: '23:00:00'
+    condition: time
+  - condition: state
+    entity_id: device_tracker.70_3c_69_c7_58_ce
+    state: home
   action:
-    - service: notify.aaron
-      data:
-        message: "It was looking a little dark!"
-        title: "Something to brighten up the room :)"
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "living room"
-        scene_name: "the best lights"
+  - data:
+      group_name: living room
+      scene_name: the best lights
+    service: hue.hue_activate_scene
+- id: '1575324459786'
+  alias: LEDs on when iGLaDOS awakes
+  trigger:
+  - platform: state
+    entity_id: device_tracker.86_d5_df_84_0e_d9
+    to: home
+  condition:
+  - condition: time
+    after: '10:00:00'
+    before: '23:00:00'
+  action:
+  - service: script.leds_on
+- id: '1575324459789'
+  alias: LEDs on when GLaDOS awakes
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: device_tracker.68_05_ca_a2_18_c7
+    to: home
+  condition:
+  - condition: time
+    after: '10:00:00'
+    before: '23:00:00'
+  action:
+  - service: script.leds_on
+- id: '1575324459791'
+  alias: LEDs on when Pixel is home
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: device_tracker.86_d5_df_84_0e_d9
+    to: home
+  condition:
+  - condition: time
+    after: '16:00:00'
+    before: '23:00:00'
+  action:
+  - service: script.leds_on
+- id: '1576003901136'
+  alias: Bedroom lights on when bedroom door opens
+  description: ''
+  trigger:
+  - device_id: 29f52d54203f4cd48b1d053b3319a2b3
+    domain: binary_sensor
+    entity_id: binary_sensor.openclose_2
+    platform: device
+    type: opened
+  condition:
+  - before: '23:00:00'
+    condition: time
+  - after: sunset
+    condition: sun
+  - condition: device
+    device_id: 5bebaa9be2214682826b754252f4d607
+    domain: light
+    entity_id: light.hue_color_candle_1
+    type: is_off
+  - condition: device
+    device_id: 91920de1f7de44cabbf2a681328e030d
+    domain: light
+    entity_id: light.hue_color_candle_1_2
+    type: is_off
+  action:
+  - data:
+      group_name: bedroom
+      scene_name: Relax
+    service: hue.hue_activate_scene
