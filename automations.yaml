@@ -69,10 +69,127 @@
     platform: device
     type: opened
   condition:
-  - before: '23:00:00'
+  - before: '22:30:00'
     condition: time
   - after: sunset
+    after_offset: '-2'
     condition: sun
+  - condition: device
+    device_id: 5bebaa9be2214682826b754252f4d607
+    domain: light
+    entity_id: light.hue_color_candle_1
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
+    type: is_off
+  - condition: device
+    device_id: 91920de1f7de44cabbf2a681328e030d
+    domain: light
+    entity_id: light.hue_color_candle_1_2
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
+    type: is_off
+  action:
+  - data:
+      group_name: bedroom
+      scene_name: Relax
+    service: hue.hue_activate_scene
+- id: '1578160420670'
+  alias: Boo Blaster's Battery Level 10% Notification
+  description: ''
+  trigger:
+  - below: 10
+    device_id: bfa6784bfe974f85b72484f407d45da5
+    domain: sensor
+    entity_id: sensor.kitchen_temperature_sensor_battery_level
+    platform: device
+    type: battery_level
+  condition: []
+  action:
+  - data:
+      message: Boo Blaster Battery Level Warning
+      title: You should replace Boo Blaster's battery soon. It's now at 10%.
+    service: notify.aaron
+- id: '1578160565821'
+  alias: Boo Blaster's Battery Level 2% Notification
+  description: ''
+  trigger:
+  - below: 2
+    device_id: bfa6784bfe974f85b72484f407d45da5
+    domain: sensor
+    entity_id: sensor.kitchen_temperature_sensor_battery_level
+    platform: device
+    type: battery_level
+  condition: []
+  action:
+  - data:
+      message: Boo Blaster Battery Level Last Warning
+      title: You should replace Boo Blaster's battery now. It's at 2%.
+    service: notify.aaron
+- id: '1578160762220'
+  alias: Rooster Brewster's Battery Level 2% Notification
+  description: ''
+  trigger:
+  - below: 2
+    device_id: 49345542c46c42a48ec45bda329cb90c
+    domain: sensor
+    entity_id: sensor.rooster_brewster_battery_level
+    platform: device
+    type: battery_level
+  condition: []
+  action:
+  - data:
+      message: Rooster Brewster Battery Level Last Warning
+      title: You should replace Rooster Brewster's battery now. It's at 2%.
+    service: notify.aaron
+- id: '1578160849303'
+  alias: Rooster Brewster's Battery Level 10% Notification
+  description: ''
+  trigger:
+  - below: 10
+    device_id: 49345542c46c42a48ec45bda329cb90c
+    domain: sensor
+    entity_id: sensor.rooster_brewster_battery_level
+    platform: device
+    type: battery_level
+  condition: []
+  action:
+  - data:
+      message: Rooster Brewster Battery Level Warning
+      title: You should replace Rooster Brewster's battery soon. It's now at 10%.
+    service: notify.aaron
+- id: '1578160949523'
+  alias: Bedroom Door Sensor Battery Level 5% Warning
+  description: ''
+  trigger:
+  - below: 5
+    device_id: 29f52d54203f4cd48b1d053b3319a2b3
+    domain: sensor
+    entity_id: sensor.bedroom_door_sensor_battery_level
+    platform: device
+    type: battery_level
+  condition: []
+  action:
+  - data:
+      message: Bedroom Door Sensor Battery Level Warning
+      title: You should replace the Bedroom Door Sensor's Battery. It's at 5%.
+    service: notify.aaron
+- id: '1578161266325'
+  alias: Turn on FUN LIGHTS between 22:30-23:00
+  description: ''
+  trigger:
+  - device_id: 29f52d54203f4cd48b1d053b3319a2b3
+    domain: binary_sensor
+    entity_id: binary_sensor.openclose_2
+    platform: device
+    type: opened
+  condition:
+  - after: '22:30'
+    before: '23:00'
+    condition: time
   - condition: device
     device_id: 5bebaa9be2214682826b754252f4d607
     domain: light
@@ -86,5 +203,22 @@
   action:
   - data:
       group_name: bedroom
-      scene_name: Relax
+      scene_name: Real human bean
+    service: hue.hue_activate_scene
+- id: '1579211105318'
+  alias: living room lights on when the living room door wiggles
+  description: ''
+  trigger:
+  - device_id: ac457f7ca6bc437b936661568d1eca0d
+    domain: binary_sensor
+    entity_id: binary_sensor.vibration_8
+    platform: device
+    type: motion
+  condition:
+  - before: 02:00
+    condition: time
+  action:
+  - data:
+      group_name: living room
+      scene_name: the best lights
     service: hue.hue_activate_scene

@@ -43,6 +43,18 @@ homeassistant:
       track: false
     device_tracker.f4_f5_db_08_12_32:
       track: false
+    sensor.rooster_brewster_battery_level:
+      hidden: true
+    sensor.pressure_7:
+      hidden: true
+    sensor.kitchen_temperature_sensor_battery_level:
+      hidden: true
+    sensor.bedroom_door_sensor_battery_level:
+      hidden: true
+    sensor.vibration_8_battery_level:
+      hidden: true
+    binary_sensor.vibration_8:
+      hidden: true
 frontend:
 
 config:
