@@ -1,8 +1,10 @@
 <p align="center">
-    <img alt="pepe" src="./docs/feelschristmasornot.png" width="200" />
+    <img alt="pepe" src="./docs/bananapie.png" width="200" />
 </p>
 <h1 align="center">
-    hass.io config
+    banana pie
 </h1>
+
+banana pie running on a raspberry pi. also known as my hass.io config.
 
 now my plants can iron my clothes!

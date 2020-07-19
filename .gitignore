@@ -12,3 +12,4 @@ known_devices.yaml
 *.db
 *.db-wal
 node_modules
+.DS_Store
