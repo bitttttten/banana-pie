@@ -59,44 +59,44 @@
     before: '23:00:00'
   action:
   - service: script.leds_on
-- id: '1576003901136'
-  alias: Bedroom lights on when bedroom door opens
-  description: ''
-  trigger:
-  - device_id: 29f52d54203f4cd48b1d053b3319a2b3
-    domain: binary_sensor
-    entity_id: binary_sensor.openclose_2
-    platform: device
-    type: opened
-  condition:
-  - before: '22:30:00'
-    condition: time
-  - after: sunset
-    after_offset: '-2'
-    condition: sun
-  - condition: device
-    device_id: 5bebaa9be2214682826b754252f4d607
-    domain: light
-    entity_id: light.hue_color_candle_1
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 15
-    type: is_off
-  - condition: device
-    device_id: 91920de1f7de44cabbf2a681328e030d
-    domain: light
-    entity_id: light.hue_color_candle_1_2
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 15
-    type: is_off
-  action:
-  - data:
-      group_name: bedroom
-      scene_name: Relax
-    service: hue.hue_activate_scene
+# - id: '1576003901136'
+#   alias: Bedroom lights on when bedroom door opens
+#   description: ''
+#   trigger:
+#   - device_id: 29f52d54203f4cd48b1d053b3319a2b3
+#     domain: binary_sensor
+#     entity_id: binary_sensor.openclose_2
+#     platform: device
+#     type: opened
+#   condition:
+#   - before: '22:30:00'
+#     condition: time
+#   - after: sunset
+#     after_offset: '-2'
+#     condition: sun
+#   - condition: device
+#     device_id: 5bebaa9be2214682826b754252f4d607
+#     domain: light
+#     entity_id: light.hue_color_candle_1
+#     for:
+#       hours: 0
+#       minutes: 0
+#       seconds: 15
+#     type: is_off
+#   - condition: device
+#     device_id: 91920de1f7de44cabbf2a681328e030d
+#     domain: light
+#     entity_id: light.hue_color_candle_1_2
+#     for:
+#       hours: 0
+#       minutes: 0
+#       seconds: 15
+#     type: is_off
+#   action:
+#   - data:
+#       group_name: bedroom
+#       scene_name: Relax
+#     service: hue.hue_activate_scene
 - id: '1578160420670'
   alias: Boo Blaster's Battery Level 10% Notification
   description: ''
