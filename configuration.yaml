@@ -60,7 +60,6 @@ frontend:
 config:
 
 http:
-  base_url: !secret base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
@@ -117,7 +116,6 @@ device_tracker:
     interval_seconds: 6
     new_device_defaults:
       track_new_devices: false
-      hide_if_away: false
 
 configurator:
     title: Configurator
