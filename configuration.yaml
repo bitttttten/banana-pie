@@ -116,14 +116,14 @@ device_tracker:
       track_new_devices: false
 
 configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: !secret configurator_url
+  title: Configurator
+  icon: mdi:wrench
+  url: !secret configurator_url
 
 binary_sensor:
   - platform: uptimerobot
     api_key: !secret uptimerobot_api_key
-    
+
 logger:
   default: info
   logs:
