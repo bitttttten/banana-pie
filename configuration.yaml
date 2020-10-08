@@ -79,7 +79,7 @@ logbook:
 sun:
 
 sensor:
-  - platform: yr
+  - platform: weather_data
 
 tts:
   - platform: google_translate
@@ -103,7 +103,6 @@ switch:
   - platform: broadlink
     host: !secret switch_broadlink_host
     mac: !secret switch_broadlink_mac
-    type: !secret switch_broadlink_type
     switches:
       - name: LEDs
         command_on: "JgBYAAABMZMTExMSFREVERMSFBIVERMSFDYVNRM3FTUVERM3FTUUNhQ2EzcUERMTExMTEhQSExIUEhMTEzcTNxM2FDYUNhU1FQAFQAABL0oUAAxTAAEyShUADQU="
