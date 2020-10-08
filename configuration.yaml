@@ -55,6 +55,9 @@ homeassistant:
       hidden: true
     binary_sensor.vibration_8:
       hidden: true
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+
 frontend:
 
 config:
