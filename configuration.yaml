@@ -99,14 +99,12 @@ script: !include scripts.yaml
 switch:
   - platform: broadlink
     host: !secret switch_broadlink_host
-    friendly_name: !secret switch_broadlink_friendly_name
     mac: !secret switch_broadlink_mac
     type: !secret switch_broadlink_type
     switches:
-      leds:
+      - name: LEDs
         command_on: "JgBYAAABMZMTExMSFREVERMSFBIVERMSFDYVNRM3FTUVERM3FTUUNhQ2EzcUERMTExMTEhQSExIUEhMTEzcTNxM2FDYUNhU1FQAFQAABL0oUAAxTAAEyShUADQU="
         command_off: "JgBYAAABNJQTEhURFBIVERMTExMTExUQFDcUNhU1EzcTExQ2FTUUNhMSFDYUEhMTExMTEhURFREUNhQSFTUVNRU1FDYVNRQ2FAAFOwABNkkUAAxRAAEwSRQADQU="
-        friendly_name: "LEDs"
 
 device_tracker:
   - platform: !secret device_tracker_platform
