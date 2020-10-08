@@ -5,6 +5,8 @@ homeassistant:
   elevation: !secret elevation
   unit_system: !secret unit_system
   time_zone: !secret time_zone
+  external_url: !secret external_url
+  internal_url: !secret internal_url
   customize:
     device_tracker.86_d5_df_84_0e_d9:
       entity_picture: "https://i.imgur.com/YRUycce.jpg"
@@ -55,8 +57,6 @@ homeassistant:
       hidden: true
     binary_sensor.vibration_8:
       hidden: true
-  external_url: !secret external_url
-  internal_url: !secret internal_url
 
 frontend:
 
